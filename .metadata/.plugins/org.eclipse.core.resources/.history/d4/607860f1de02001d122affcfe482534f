@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		ArrayList<Cliente> clt;
+		Cliente clt1 = new Cliente();
+		Cliente clt2 = new Cliente();
+		Cliente clt3 = new Cliente();
+
+		clt1.setNome("Jonas");
+		clt2.setNome("João");
+		clt3.setNome("Pedro");
+		
+		clt = new ArrayList<Cliente>();
+		clt.add(clt1);
+		clt.add(clt2);
+		clt.add(clt3);
+		
+		for(int i = 0; i < clt.size(); i++) {
+			System.out.println("=== Lista de clientes ===" + clt.get(i).getNome());
+			System.out.println();
+		}
+		
+
+		ContaCorrente cc = new ContaCorrente(clt1);
+		cc.depositar(200);
+		ContaPoupança cp = new ContaPoupança(clt1);
+		cc.transferir(100, cp);
+
+		cc.imprimirExtrato();
+		cp.imprimirExtrato();
+	}
+}
